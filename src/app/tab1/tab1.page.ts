@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { dishesService } from '../service/dishes';
+import { Dishes } from 'src/assets/data/dishes.interface';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +9,11 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab1Page {
-
-  constructor() {}
+  dishes: Dishes[];
+  constructor(private dishService: dishesService) {}
+  ionViewWillEnter() {
+    this.dishes = this.dishService.getFavoriteDish();
+    console.log(this.dishes);
+  }
 
 }

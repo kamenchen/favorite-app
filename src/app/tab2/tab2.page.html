@@ -17,11 +17,16 @@
     </ion-item>
     <ion-card *ngFor = "let dishDetail of dishGroup.dishes; let i=index">
       <ion-card-header>
-        <p>{{i+1}} {{dishDetail.item}}</p>
+        <p class="dishTitle">{{i+1}} {{dishDetail.item}}</p>
         <ion-card-content>
           <img src={{dishDetail.img}}>
           <p>{{dishDetail.desc}}</p>
         </ion-card-content>
+        <ion-row>
+          <ion-col class="ion-text-right">
+            <ion-button fill="clear" size="small" (click)="onAddToFavorite(dishDetail)">Favorite</ion-button>
+          </ion-col>
+        </ion-row>
       </ion-card-header>
     </ion-card>
   </ion-list>
